@@ -53,7 +53,10 @@ Run the Docker
 
 ### Install Xquartz
 https://www.xquartz.org
-Select XQuartz → Preferences → Security
+
+from "XQuartz → Preferences → Security" select  “Allow connections from network clients” and “Authenticate connections”
+
+It may need to restart the mac
 ```
 sudo curl --create-dirs -o /usr/local/bin/openfoam6-macos http://dl.openfoam.org/docker/openfoam6-macos
 
