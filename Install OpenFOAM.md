@@ -63,13 +63,16 @@ mkdir -p $HOME/OpenFOAM
 ```
 Go to the directory
 ```
-openfoam6-macos
+cd $HOME/OpenFOAM
 
+openfoam6-macos
 exit
 
 openfoam6-macos -p
 
 mkdir -p $FOAM_RUN
+
+exit
 ```
 ### Create file system:???
 ```
@@ -77,5 +80,5 @@ sudo curl -o /usr/local/bin/openfoam-macos-file-system http://dl.openfoam.org/do
 
 sudo chmod 755 /usr/local/bin/openfoam-macos-file-system
 
-openfoam-macos-file-system
+openfoam-macos-file-system -h
 ```
