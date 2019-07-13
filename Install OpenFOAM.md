@@ -1,4 +1,4 @@
-# Install OpenFOAM (v6)
+# Install OpenFOAM (v7)
 
 ## *** Install on Windows 10 Linux bash ***
 ```
@@ -10,9 +10,9 @@ sudo apt-get update
 
 sudo apt-get upgrade
 
-sudo apt-get -y install openfoam6
+sudo apt-get -y install openfoam7
 
-echo "source /opt/openfoam6/etc/bashrc" >> .bashrc
+echo "source /opt/openfoam7/etc/bashrc" >> .bashrc
 
 source $HOME/.bashrc
 ```
@@ -45,7 +45,7 @@ simpleFoam -help
 ```
 
 ***
-## *** Install OpenFOAM (v6) on macOS ***
+## *** Install OpenFOAM (v7) on macOS ***
 
 ### Install docker:
 https://docs.docker.com/docker-for-mac/install/
@@ -57,27 +57,14 @@ https://www.xquartz.org
 from "XQuartz → Preferences → Security" select  “Allow connections from network clients” and “Authenticate connections”
 
 It may need to restart the mac
+
+Then:
 ```
-sudo curl --create-dirs -o /usr/local/bin/openfoam6-macos http://dl.openfoam.org/docker/openfoam6-macos
+sudo curl --create-dirs -o /usr/local/bin/openfoam7-macos http://dl.openfoam.org/docker/openfoam7-macos
 
-sudo chmod 755 /usr/local/bin/openfoam6-macos
-
-mkdir -p $HOME/OpenFOAM
+sudo chmod 755 /usr/local/bin/openfoam7-macos
 ```
-Go to the directory
-```
-cd $HOME/OpenFOAM
-
-openfoam6-macos
-exit
-
-openfoam6-macos -p
-
-mkdir -p $FOAM_RUN
-
-exit
-```
-### Create file system:???
+### Create file system
 ```
 sudo curl -o /usr/local/bin/openfoam-macos-file-system http://dl.openfoam.org/docker/openfoam-macos-file-system
 
@@ -85,3 +72,21 @@ sudo chmod 755 /usr/local/bin/openfoam-macos-file-system
 
 openfoam-macos-file-system -h
 ```
+
+```
+mkdir -p $HOME/openfoam
+```
+Go to the directory
+```
+cd $HOME/openfoam
+
+openfoam7-macos
+exit
+
+openfoam7-macos -p
+
+mkdir -p $FOAM_RUN
+
+exit
+```
+
