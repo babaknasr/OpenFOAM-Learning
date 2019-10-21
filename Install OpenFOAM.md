@@ -90,3 +90,8 @@ mkdir -p $FOAM_RUN
 exit
 ```
 
+# Update OpenFoam
+```
+apt-get update
+apt-get --only-upgrade install openfoam7
+```
