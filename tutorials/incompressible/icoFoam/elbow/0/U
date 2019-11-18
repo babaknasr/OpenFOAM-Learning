@@ -14,29 +14,37 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+//  dimension of velocity: [m^1][s^-1]
 dimensions      [0 1 -1 0 0 0 0];
 
+/*  Intializing zero on entire domain
+    but it is a vector i.e., (0,0,0)
+*/
 internalField   uniform (0 0 0);
 
 boundaryField
 {
+    //  wall velocity BC: noSlip
     wall-4
     {
         type            noSlip;
     }
 
+    //  inlet velocity: 1 m/s in x-direction
     velocity-inlet-5
     {
         type            fixedValue;
         value           uniform (1 0 0);
     }
 
+    //  inlet velocity: 3 m/s in y-direction
     velocity-inlet-6
     {
         type            fixedValue;
         value           uniform (0 3 0);
     }
 
+    //  At pressure outlets the velocity BC is "zeroGradient"
     pressure-outlet-7
     {
         type            zeroGradient;

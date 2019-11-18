@@ -15,6 +15,10 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+/*  nu: Kinetic viscosity
+    in the form of: "parameter [dimension] value"
+    here dimension is [m^2][s^-1]
+*/
 nu              [0 2 -1 0 0 0 0] 0.01;
 
 

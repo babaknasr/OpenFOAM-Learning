@@ -14,12 +14,22 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+/*  
+    "dimensions" contain 7 SI units: [kg, meter, seconds, ...] 
+    Here is the dimension of the pressure/density which is [m^2][s^-2]
+*/
 dimensions      [0 2 -2 0 0 0 0];
 
+
+/* 
+    Intializing the pressure to 0 in entire domain
+*/
 internalField   uniform 0;
 
+//  "boundaryField consists with "type" and "value"
 boundaryField
 {
+    //  At walls the pressure boundary condition is "zeroGradient" (so-called Neumann boundary condition)
     wall-4
     {
         type            zeroGradient;
@@ -30,11 +40,13 @@ boundaryField
         type            zeroGradient;
     }
 
+    //  At velocity inlets (incompressible) the pressure BC is "zeroGradient" 
     velocity-inlet-6
     {
         type            zeroGradient;
     }
 
+    //  atmospheric pressure outlet //
     pressure-outlet-7
     {
         type            fixedValue;
@@ -46,6 +58,7 @@ boundaryField
         type            zeroGradient;
     }
 
+    //  ???
     frontAndBackPlanes
     {
         type            empty;

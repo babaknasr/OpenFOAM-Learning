@@ -17,6 +17,9 @@ FoamFile
 
 application     icoFoam;
 
+/*  "startFrom latestTime;" starts the simulation from the last solusion
+    without this setting, OpenFOAM ignores the current solution and start from the zero time
+*/
 startFrom       latestTime;
 
 startTime       0;
@@ -29,6 +32,7 @@ deltaT          0.05;
 
 writeControl    timeStep;
 
+//  Save after 20 timeStep (specified by "writeControl")
 writeInterval   20;
 
 purgeWrite      0;
