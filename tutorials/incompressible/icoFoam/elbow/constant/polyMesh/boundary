@@ -1,0 +1,77 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+/*
+Check the boundary names to be matched with those specified in **U** and **P**.
+The walls type is "wall"
+The velocity and pressure inlet/outlet type is "patch"
+*/
+
+6
+(
+    wall-4
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          100;
+        startFace       1300;
+    }
+    velocity-inlet-5
+    {
+        type            patch;
+        nFaces          8;
+        startFace       1400;
+    }
+    velocity-inlet-6
+    {
+        type            patch;
+        nFaces          4;
+        startFace       1408;
+    }
+    pressure-outlet-7
+    {
+        type            patch;
+        nFaces          8;
+        startFace       1412;
+    }
+    wall-8
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          34;
+        startFace       1420;
+    }
+    
+    /*
+        - "frontAnDBackPlanes are the front and back planes of the geometry 
+        in normal direction (z direction) for the 2D geometry"
+        - The type is empty
+
+        * It mut be noted that OpenFOAM consider always a 3D geometry, 
+        such that even for a 2D case there is assumed one cell in the depth (z-direction),
+        and the two faces in z direction called frontAndBackPlanes
+    */
+    frontAndBackPlanes
+    {
+        type            empty;
+        inGroups        List<word> 1(empty);
+        nFaces          1836;
+        startFace       1454;
+    }
+)
+
+// ************************************************************************* //
