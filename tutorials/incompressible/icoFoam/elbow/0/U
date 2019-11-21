@@ -55,6 +55,15 @@ boundaryField
         type            noSlip;
     }
 
+    /*
+        - "frontAnDBackPlanes are the front and back planes of the geometry 
+        in normal direction (z direction) for the 2D geometry"
+        - The type is empty
+
+        * It mut be noted that OpenFOAM consider always a 3D geometry, 
+        such that even for a 2D case there is assumed one cell in the depth (z-direction),
+        and the two faces in z direction called frontAndBackPlanes
+    */
     frontAndBackPlanes
     {
         type            empty;
