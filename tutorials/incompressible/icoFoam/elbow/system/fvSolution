@@ -42,6 +42,7 @@ solvers
 
 PISO
 {
+    // theese values specify the number of iterations in the solver loops
     nCorrectors     2;
     nNonOrthogonalCorrectors 2;
 }
